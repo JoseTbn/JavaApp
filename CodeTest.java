@@ -11,8 +11,25 @@ public class CodeTest {
     
     public static void main(String[] args) {
 
+ // 3 method to get winning number and getTickets
 
+ Set<Integer> winning = createWinningNumbers();
+ Set<Integer> ticket = getTickets();
 
+ // 4 keep only winning tickets
+
+ Set<Integer> matches = new TreeSet<>(ticket);
+ matches.retainAll(winning);
+
+ // 5 calculating the prize and
+ System.out.println("Your tickets was:"  +ticket);
+ System.out.println("Winning number is :"  +winning);
+if (matches.size() >0){
+
+    double prize = PRIZE * Math.pow(2, matches.size());
+    System.out.println("Matched numbers: " +matches);
+    System.out.printf("Your prize is $%.2f\n", prize );
+}
 
 
 
@@ -32,7 +49,7 @@ public class CodeTest {
     } 
 
 
-    // reading players lottery ticker from console
+    // 2 reading players lottery ticker from console
     public static Set<Integer> getTickets(){
         Set<Integer> ticket = new TreeSet<>();
         Scanner scanner = new Scanner(System.in);
